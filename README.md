@@ -14,14 +14,19 @@ git config --global credential.helper wincred
 - Para debug en Visual Code
 
 npm init
+
 npm install ts-node --save-dev
+
 npm install typescript --save-dev
 
-Con debug mocha
+- Con debug mocha
+
 npm install --save-dev mocha
 
 Agregar en launch.json
+
 ...
+
     "configurations": [
         {
             "name": "Current TS File",
@@ -33,4 +38,5 @@ Agregar en launch.json
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
         },
+        
 ...
