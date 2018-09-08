@@ -4,4 +4,6 @@ function migreeter(person: string) {
 
 let miuser = "Jane User";
 
+document.body.innerHTML = migreeter(miuser);
+
 console.log(migreeter(miuser));
