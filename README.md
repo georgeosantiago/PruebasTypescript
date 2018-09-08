@@ -26,7 +26,6 @@ npm install --save-dev mocha
 Agregar en launch.json
 
 ...
-
     "configurations": [
         {
             "name": "Current TS File",
@@ -37,6 +36,5 @@ Agregar en launch.json
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
-        },
-        
+        },     
 ...
