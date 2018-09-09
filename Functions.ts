@@ -52,3 +52,25 @@ let result_1 = buildName_idem("Bob");                  // works correctly now
 //let result_2 = buildName_idem("Bob", "Adams", "Sr.");  // error, too many parameters
 let result_3 = buildName_idem("Bob", "Adams");         // ah, just right
 
+// lastNamepor defecto
+function buildName_v2(firstName: string, lastName = "Smith") {
+    return firstName + " " + lastName;
+}
+
+function buildName_v3(firstName = "Will", lastName: string) {
+    return firstName + " " + lastName;
+}
+// let result1 = buildName_v3("Bob");                  // error, too few parameters
+let result4 = buildName_v3(undefined, "Adams");     // okay and returns "Will Adams"
+
+// Rest Parameters
+
+function buildName_rest(firstName: string, ...restOfName: string[]) {
+    return firstName + " " + restOfName.join(" ");
+}
+
+let employeeName = buildName_rest("Joseph", "Samuel", "Lucas", "MacKinzie");
+
+let buildNameFun: (fname: string, ...rest: string[]) => string = buildName_rest;
+
+/// this
