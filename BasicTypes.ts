@@ -67,3 +67,62 @@ let notSure: any = 4;
 notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean
 console.log(notSure);
+
+let notSure_b: any = 4;
+notSure_b.ifItExists; // okay, ifItExists might exist at runtime
+notSure_b.toFixed(); // okay, toFixed exists (but the compiler doesn't check)
+
+let prettySure: Object = 4;
+//prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object'.
+
+let list_b: any[] = [1, true, "free"];
+list_b[1] = 100;
+console.log(list_b[1]);
+
+// Void
+
+function warnUser(): void {
+    console.log("This is my warning message");
+}
+warnUser();
+
+let unusable: void = undefined; // a un tipo void solo se puede asignar undefined y null
+
+// Null and Undefined
+
+let u: undefined = undefined;
+let n: null = null;
+
+// Never
+
+// Function returning never must have unreachable end point
+function error(message: string): never {
+    throw new Error(message);
+}
+
+// Inferred return type is never
+function fail() {
+    return error("Something failed");
+}
+
+// Function returning never must have unreachable end point
+function infiniteLoop(): never {
+    while (true) {
+    }
+}
+
+// Object
+// cualquier cosa que no sea number , string , boolean , symbol , null o undefined .
+
+let pp= Object.create({ prop: 'changos' });
+console.log(pp.prop);
+
+// Type assertions
+
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+console.log('el largo es: '+ strLength);
+
+let strLength_idem: number = (someValue as string).length;
+console.log('el largo es: '+ strLength_idem);
+
