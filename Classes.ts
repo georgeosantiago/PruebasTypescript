@@ -162,6 +162,9 @@ class Grid {
         let yDist = (point.y - Grid.origin.y);
         return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
     }
+    dameorigen() {
+        return Grid.origin;
+    }
     constructor (public scale: number) { }
 }
 
@@ -170,6 +173,7 @@ let grid2 = new Grid(5.0);  // 5x scale
 console.log('#######');
 console.log(grid1.calculateDistanceFromOrigin({x: 10, y: 10}));
 console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
+console.log(grid2.dameorigen());
 
 
 // Abstract Classes
@@ -187,3 +191,23 @@ abstract class Department {
 // Advanced Techniques
 // Constructor functions
 
+//  Una declaración de clase crea dos cosas: un tipo que representa instancias de la clase y una función de constructor.
+// grid2.origin= {x: 1, y: 1}; Error! es static
+let Gridmk: typeof Grid = Grid;
+Gridmk.origin= {x: 1, y: 1};    // ahora puedo acceder a static
+let grid3: Grid = new Gridmk(1.0);
+console.log(grid3.dameorigen());
+
+// Using a class as an interface
+
+// Debido a que las clases crean tipos, puede usarlos en los mismos lugares donde podría usar interfaces.
+class Point {
+    x: number;
+    y: number;
+}
+
+interface Point3d extends Point {
+    z: number;
+}
+
+let point3d: Point3d = {x: 1, y: 2, z: 3};
