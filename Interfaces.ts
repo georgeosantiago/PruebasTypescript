@@ -46,12 +46,12 @@ console.log(createSquare(mico));
 
 // Readonly properties
 
-interface Point {
+interface rPoint {
     readonly x: number;
     readonly y: number;
 }
 
-let p1: Point = { x: 10, y: 20 };
+let p1: rPoint = { x: 10, y: 20 };
 // p1.x = 5; // error!
 
 // las clases ReadonlyArray<T> y Array<T>
