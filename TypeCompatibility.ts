@@ -43,3 +43,7 @@ let f_x = () => ({name: "Alice"});
 let f_y = () => ({name: "Alice", location: "Seattle"}); // es mas restrictiva tiene que devolver los dos
 f_x = f_y; // OK
 //f_y = f_x; // Error, because x() lacks a location property
+
+// Función Parámetro Bivariance
+
+
