@@ -46,4 +46,4 @@ f_x = f_y; // OK
 
 // Función Parámetro Bivariance
 
-
+// Incompleto ....
