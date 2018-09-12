@@ -50,8 +50,25 @@ interface uFish {
     layEggs():void;
 }
 
+class CuBird implements uBird {
+    fly():void {
+    }
+    layEggs():void {
+    }
+    constructor() { }
+}
+
+class CuFish implements uFish {
+    swim():void {
+    }
+    layEggs():void {
+    }
+    constructor() { }
+}
+
 function getSmallPet(): uFish | uBird {
-    let ss:any;
+    let ss:uFish | uBird;
+    ss= new CuFish();
     return ss;
 }
 
@@ -92,4 +109,43 @@ function tpadLeft(value: string, padding: string | number) {
 }
 
 // instanceof tipo guardias
+
+interface Padder {
+    layEggs(): void
+}
+
+let padder: Padder;
+
+if (Math.random() < 0.5) {
+    padder = new CuFish();
+} else {
+    padder = new CuBird();
+}
+
+if (padder instanceof CuFish) {
+    padder; // layEggs de CuFish
+}
+
+if (padder instanceof CuBird) {
+    padder; // layEggs de CuBird
+}
+
+// Nullable types
+
+// null y undefined
+console.log('######');
+let s = "foo";
+s = null;       // segun la documentacion no se puede
+s = undefined;  // segun la documentacion no se puede
+
+// Parámetros y propiedades opcionales
+// --strictNullChecks agrega |undefined
+
+function ff(x: number, y?: number) {
+    return x + (y || 0);
+}
+ff(1, 2);
+ff(1);
+ff(1, undefined);
+ff(1, null);    // segun la documentacion no se puede
 
