@@ -384,4 +384,6 @@ type PartialT<T> = {
 type PersonPartial_v = Partial<Person>;
 type ReadonlyPerson_v = Readonly<Person>;
 
+// Inference from mapped types
 
+// pendiente ..
